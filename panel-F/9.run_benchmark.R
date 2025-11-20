@@ -18,8 +18,8 @@ cat("Threads:", thread, "\n")
 cat("Number of cells:", number_of_cells, "\n") 
 
 
-M <- readRDS("Data/WMB_ATLAS_10X_V3.rd")
-hvg_vector <- readRDS("Data/high_variable_genes_vector.rds")[1:2000, ]
+M <- readRDS("data/WMB_ATLAS_10X_V3.rds")
+hvg_vector <- readRDS("data/high_variable_genes_vector.rds")
 
 set.seed(42)
 select_vector <- sample(1:ncol(M), number_of_cells)

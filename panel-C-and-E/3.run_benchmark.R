@@ -18,7 +18,7 @@ cat("Threads:", thread, "\n")
 cat("Number of cells:", number_of_cells, "\n") 
 
 # reading the file
-M <- readRDS("Data/WMB_ATLAS_10X_V3.rds")
+M <- readRDS("data/WMB_ATLAS_10X_V3.rds")
 
 set.seed(42)
 select_vector <- sample(1:ncol(M), number_of_cells)

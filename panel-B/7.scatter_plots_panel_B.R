@@ -9,8 +9,12 @@ suppressPackageStartupMessages({
 })
 
 
-model_new <- readRDS("new_gedi_model.rds")
-model_legacy <- readRDS("legacy_gedi_model.rds")
+# Define output directory for plots
+save.dir <- "figures"
+
+# Load models from results directory
+model_new <- readRDS("results/new_gedi_model.rds")
+model_legacy <- readRDS("results/legacy_gedi_model.rds")
 
 # ZDB calculations
 ZD_new <- model_new$params$Z %*% Diagonal(x = model_new$params$D)

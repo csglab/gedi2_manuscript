@@ -1,7 +1,7 @@
 library(gedi)
-file_dirs <- list.files("Data/Allen-brain-10X-V3/", full.names = TRUE)
+file_dirs <- list.files("data/Allen-brain-10X-V3/", full.names = TRUE)
 
-high_variable_genes <- readRDS("Data/high_variable_genes_vector.rds")
+high_variable_genes <- readRDS("data/high_variable_genes_vector.rds")
 M_expression_matrix <- c()
 metadata <- c()
 
@@ -21,6 +21,6 @@ for(i in 1:length(file_dirs)){
   cat("done!\n")
 }
 
-saveRDS(M_expression_matrix, "WMB_ATLAS_10X_V3.rds")
+saveRDS(M_expression_matrix, "data/WMB_ATLAS_10X_V3.rds")
 # saveRDS(metadata, "WMB_ATLAS_10X_V3_metadata.rds") #optional
 

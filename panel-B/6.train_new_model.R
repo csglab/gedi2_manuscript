@@ -4,7 +4,7 @@ suppressPackageStartupMessages({
 })
 
 # reading the M matrix
-M <- readRDS("Data/WMB_ATLAS_10X_V3.rds")
+M <- readRDS("data/WMB_ATLAS_10X_V3.rds")
 set.seed(42)
 M <- M[, sample(1:ncol(M), 10000), drop=FALSE]
 Sample_vec <- sub("^.{17}(.*$)", "\\1", colnames(M))
@@ -18,6 +18,6 @@ Sample_vec <- sub("^.{17}(.*$)", "\\1", colnames(M))
     })
 
 # Save the model
-    saveRDS(model_new, file = file.path("new_gedi_model.rds"))
+    saveRDS(model_new, file = file.path("results/new_gedi_model.rds"))
 
 

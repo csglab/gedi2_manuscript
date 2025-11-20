@@ -10,11 +10,10 @@ suppressPackageStartupMessages({
 
 tex.dirs <- "../panel-C-and-E/"
 
-files_dir <- list.files(file.path(tex.dirs, version_number))
+files_dir <- list.files(tex.dirs)
 files_dir <- files_dir[grep("txt", files_dir)]
 
-save.dir <- "./"
-setwd(save.dir)
+save.dir <- "figures"
 
 
 ewma <- function(vec, momentum = 0.9) {
@@ -31,7 +30,7 @@ ewma <- function(vec, momentum = 0.9) {
 
 dt_list <- list()
 for(file_dir in files_dir){
-    dt_rport <- read.table(file.path(tex.dirs, version_number, file_dir)) |> as.data.table()
+    dt_rport <- read.table(file.path(tex.dirs, file_dir)) |> as.data.table()
     names(dt_rport) <- c("time_elapsed", "cpu", "memory_usage", "mem_vir")
     if(sub("^(.)-(.*)-(.*).txt$", "\\1", file_dir) == 1){
         dt_rport[, Run := "original"]
@@ -229,17 +228,17 @@ p_memory_smooth_100k <- ggplot(memory_data_100k, aes(x = time_elapsed, y = avg_m
 
 # Combined time performance plot
 combined_time <- p_time / p_speedup
-ggsave("time_performance_all.pdf", combined_time, width = 12, height = 8, dpi = 300, device = cairo_pdf)
+ggsave(file.path(save.dir, "time_performance_all.pdf"), combined_time, width = 12, height = 8, dpi = 300, device = cairo_pdf)
 
 # Speedup comparison
-ggsave("speedup_comparison_datasets.pdf", p_speedup_compare, width = 10, height = 5, dpi = 300, device = cairo_pdf)
+ggsave(file.path(save.dir, "speedup_comparison_datasets.pdf"), p_speedup_compare, width = 10, height = 5, dpi = 300, device = cairo_pdf)
 
 # Memory plots
-ggsave("peak_memory_all.pdf", p_peak, width = 10, height = 6, dpi = 300, device = cairo_pdf)
-ggsave("memory_fluctuations_all.pdf", p_memory_fluct, width = 12, height = 8, dpi = 300, device = cairo_pdf)
-ggsave("memory_smooth_all.pdf", p_memory_smooth, width = 12, height = 8, dpi = 300, device = cairo_pdf)
-ggsave("memory_fluctuations_100k.pdf", p_memory_100k, width = 12, height = 4, dpi = 300, device = cairo_pdf)
-ggsave("memory_smooth_100k.pdf", p_memory_smooth_100k, width = 12, height = 4, dpi = 300, device = cairo_pdf)
+ggsave(file.path(save.dir, "peak_memory_all.pdf"), p_peak, width = 10, height = 6, dpi = 300, device = cairo_pdf)
+ggsave(file.path(save.dir, "memory_fluctuations_all.pdf"), p_memory_fluct, width = 12, height = 8, dpi = 300, device = cairo_pdf)
+ggsave(file.path(save.dir, "memory_smooth_all.pdf"), p_memory_smooth, width = 12, height = 8, dpi = 300, device = cairo_pdf)
+ggsave(file.path(save.dir, "memory_fluctuations_100k.pdf"), p_memory_100k, width = 12, height = 4, dpi = 300, device = cairo_pdf)
+ggsave(file.path(save.dir, "memory_smooth_100k.pdf"), p_memory_smooth_100k, width = 12, height = 4, dpi = 300, device = cairo_pdf)
 
 # Display all plots
 print(combined_time)

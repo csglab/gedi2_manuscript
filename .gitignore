@@ -1,0 +1,36 @@
+# Data files (downloaded and processed)
+data/Allen-brain-10X-V3/
+*.rds
+!data/high_variable_genes_vector.rds
+
+# Output directories
+results/*
+!results/.gitkeep
+figures/*
+!figures/.gitkeep
+
+# R files
+.Rhistory
+.RData
+.Rproj.user
+
+# System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Benchmark and profiling outputs
+*.log
+*.prof
+*.txt.prof
+psrecord_*.txt
+psrecord_*.png
+
+# Temporary files
+*~
+*.swp
+*.swo
