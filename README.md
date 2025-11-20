@@ -4,7 +4,7 @@ This repository contains reproducible code for generating the figures and analys
 
 ## Overview
 
-This repository provides a complete pipeline for reproducing the computational analyses and figures from the GEDI 2 manuscript, demonstrating improvements in the GEDI (Gene Expression Deconvolution Interactive) method for analyzing single-cell RNA sequencing data.
+This repository provides a complete pipeline for reproducing the computational analyses and figures from the GEDI 2 manuscript, demonstrating improvements in the GEDI  method for analyzing single-cell RNA sequencing data.
 
 ## Prerequisites
 
