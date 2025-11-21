@@ -39,7 +39,7 @@ install.packages("gedi")  # or install from GitHub
 
 1. **Clone the repository**
    ```bash
-   git clone csglab/gedi2_manuscript
+   git clone git@github.com:csglab/gedi2_manuscript.git
    cd gedi2_manuscript
    ```
 
